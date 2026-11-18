@@ -84,50 +84,30 @@ input {
   display: inline;
 }
 
-/* ---------- Decorative leaves ---------- */
+/* ---------- Decorative leaves (cropped bitmaps, cream keyed to alpha) ---------- */
 .deco {
   position: absolute;
   pointer-events: none;
-  z-index: 0;
-  color: var(--green-soft);
-  opacity: 0.55;
-}
-
-.deco svg {
-  width: 100%;
-  height: 100%;
-}
-
-.deco-tl {
-  top: -20px;
-  left: -30px;
-  width: 180px;
-  height: 180px;
-  transform: rotate(-10deg);
+  z-index: 2;
+  object-fit: cover;
+  max-width: none;
 }
 
 .deco-tr {
-  top: -30px;
-  right: -40px;
-  width: 220px;
-  height: 220px;
-  opacity: 0.65;
+  top: -8px;
+  right: 0;
+  width: clamp(130px, 16vw, 210px);
+  height: auto;
+  opacity: 0.92;
 }
 
 .deco-bl {
-  bottom: 40px;
-  left: -40px;
-  width: 240px;
-  height: 240px;
-  opacity: 0.5;
-}
-
-.deco-br {
-  bottom: 20px;
-  right: -50px;
-  width: 260px;
-  height: 260px;
-  opacity: 0.55;
+  bottom: 12px;
+  left: 0;
+  width: clamp(150px, 18vw, 240px);
+  height: auto;
+  opacity: 0.92;
+  z-index: 0;
 }
 
 /* ---------- Hero ---------- */
@@ -324,7 +304,15 @@ input {
 .product-scene {
   width: min(100%, 560px);
   height: auto;
-  filter: drop-shadow(0 20px 40px rgba(44, 42, 36, 0.1));
+  /* Soft-blend edges into page cream (crop was cut mid-scene) */
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, #000 12%, #000 92%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 12%, #000 92%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-composite: intersect;
 }
 
 /* ---------- Sections shared ---------- */
@@ -440,6 +428,7 @@ input {
   height: 100%;
   min-height: 340px;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .jamu-copy {
@@ -501,6 +490,12 @@ input {
   height: 72px;
 }
 
+.science-icon-illustration img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
 .science-icon-badge {
   width: 48px;
   height: 48px;
@@ -552,7 +547,7 @@ input {
 }
 
 .vision-card {
-  background: rgba(255, 253, 249, 0.55);
+  background: #fdf6f0;
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.35rem 1.35rem 1.5rem;
@@ -569,17 +564,18 @@ input {
 }
 
 .vision-card-featured {
-  background: rgba(240, 245, 232, 0.65);
+  background: #f6efdc;
   border-color: var(--border-green);
 }
 
 .vision-tin {
-  flex: 0 0 88px;
+  flex: 0 0 auto;
 }
 
-.vision-tin svg {
-  width: 88px;
+.vision-tin img {
+  width: clamp(72px, 8vw, 96px);
   height: auto;
+  border-radius: 6px;
 }
 
 .vision-text {
@@ -837,18 +833,14 @@ input {
     margin-inline: auto;
   }
 
-  .deco-tl,
   .deco-tr {
-    width: 120px;
-    height: 120px;
-    opacity: 0.4;
+    width: 110px;
+    opacity: 0.85;
   }
 
-  .deco-bl,
-  .deco-br {
-    width: 150px;
-    height: 150px;
-    opacity: 0.35;
+  .deco-bl {
+    width: 130px;
+    opacity: 0.85;
   }
 
   .cta-form {
