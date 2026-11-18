@@ -655,6 +655,23 @@ input {
   color: var(--muted);
 }
 
+.footer p.footer-credit {
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.footer-credit a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+
+.footer-credit a:hover {
+  opacity: 0.75;
+}
+
 /* ---------- Toast (demo success) ---------- */
 .toast {
   position: fixed;

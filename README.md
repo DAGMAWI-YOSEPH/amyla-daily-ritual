@@ -2,12 +2,12 @@
 
 A pixel-faithful, fully responsive recreation of the **AMYLA Daily Ritual** wellness landing page — built as a static site with zero build step.
 
-![AMYLA landing page](./assets/preview.png)
+![AMYLA landing page](./assets/preview.webp)
 
 ## ✨ Features
 
 - **Faithful design recreation** — warm cream palette, Fraunces display serif, olive-green CTAs, decorative botanical corner motifs
-- **Hand-crafted SVG illustrations** — product still-life (tin, cup, turmeric), rice-terraces scene, product tins, and all icons — no external image dependencies
+- **Optimized WebP imagery** — all photos cropped from the source design and converted to WebP for fast loading
 - **Fully working waitlist demo** — client-side email validation, localStorage persistence, success states, and toast feedback on both forms
 - **Responsive** — desktop, tablet, and mobile layouts with graceful stacking
 - **Accessible** — semantic HTML, ARIA live regions, focus states, `prefers-reduced-motion` support, screen-reader-only labels
@@ -16,6 +16,8 @@ A pixel-faithful, fully responsive recreation of the **AMYLA Daily Ritual** well
 ## 🚀 Live Demo
 
 **https://dagmawi-yoseph.github.io/amyla-daily-ritual/**
+
+Demo created by [Dagm](https://dagm.dev)
 
 ## 🛠️ Run Locally
 
@@ -34,10 +36,10 @@ python3 -m http.server 8080
 
 ```
 amyla-daily-ritual/
-├── index.html        # Full page markup + inline SVG artwork
+├── index.html        # Full page markup
 ├── css/styles.css    # Design system, layout, responsive rules
 ├── js/main.js        # Waitlist form logic (localStorage demo)
-├── assets/           # Preview screenshot
+├── assets/           # WebP photos + preview
 └── README.md
 ```
 
